@@ -1,6 +1,6 @@
 ---
 import type { Playlist } from "../lib/data";
-import { CardPlayButton } from "../components/CardPLayButton";
+import { CardPlayButton } from "./CardPlayButton";
 
 interface Props {
   playlist: Playlist;
@@ -20,13 +20,13 @@ const artistsString = artists.join(", ");
     group-hover:translate-y-0 group-hover:opacity-100
     z-10`
   >
-    <CardPlayButton id={id} />
+    <CardPlayButton id={id} client:visible />
   </div>
   <a
     href={`/playlist/${id}`}
     transition:name=`playlist ${id} box`
-    class="playlist-item transition-all shadow-lg hover:shadow-xl duration-300
-  flex relative p-2 overflow-hidden gap-4 pb-4 rounded-md w-44 flex-col bg-zinc-700"
+    class="playlist-item duration-300
+  flex relative p-2 overflow-hidden gap-4 pb-4 w-44 flex-col"
   >
     <picture class="aspect-square w-full h-auto flex-none">
       <img
