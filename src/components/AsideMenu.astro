@@ -5,6 +5,8 @@ import SearchIcon from "../icons/Search.astro";
 import AdjustmentsIcon from "../icons/Adjustments.astro";
 import SettingsIcons from "../icons/Settings.astro";
 import SideMenuItem from "./SideMenuItem.astro";
+import SideMenuCard from "./SideMenuCard.astro";
+import { playlists } from "../lib/data";
 ---
 
 <nav class="flex flex-col flex-1 gap-2">
@@ -27,17 +29,19 @@ import SideMenuItem from "./SideMenuItem.astro";
 
       <SideMenuItem href="/#">
         <SettingsIcons />
-        Settingss
+        <h2 class="">Settings</h2>
       </SideMenuItem>
     </ul>
   </div>
 
   <div class="bg-zinc-800 flex-1 justify-evenly items-center rounded-lg p-2">
-    <ul class="border-b border-zinc-700">
+    <ul class="border-zinc-700">
       <SideMenuItem href="/#">
         <MusicIcon />
-        <span class="">Library</span>
+        <span class="text-center font-bold border-b">Library</span>
       </SideMenuItem>
+
+      {playlists.map((playlist) => <SideMenuCard playlist={playlist} />)}
     </ul>
   </div>
 </nav>

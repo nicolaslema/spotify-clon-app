@@ -1,11 +1,26 @@
 ---
-import Layout from '../layouts/Layout.astro';
-
+import Greeting from "../components/Greeting.svelte";
+import PlayListItemCard from "../components/PlayListItemCard.astro";
+import Layout from "../layouts/Layout.astro";
+import { playlists } from "../lib/data";
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-		
-	</main>
-</Layout>
+<Layout title="SPOTIFIX">
+  <div
+    id="playlist-container"
+    class="relative transition-all duration-100 bg-green-500"
+  >
+    <div class="relative z-10 px-6 pt-10">
+      <Greeting />
 
+      <div class="flex flex-wrap mt-6 mb-2 gap-4">
+        {playlists.map((playlist) => <PlayListItemCard playlist={playlist} />)}
+      </div>
+    </div>
+
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/50"
+    >
+    </div>
+  </div>
+</Layout>
